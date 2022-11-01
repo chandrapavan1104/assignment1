@@ -68,6 +68,7 @@ int main(int argc, char const *argv[])
 	}
         //Privileges are now dropped to that of "nobody" user
         printf("UID of nobody=%ld\n",(long) pwd->pw_uid);
+	printf("UID before setuid() = %ld\n",(long) getuid());
         if (setuid(pwd->pw_uid) < 0)   //Run the program as superuser in order to execute setuid
             perror("setuid() error");
         else
